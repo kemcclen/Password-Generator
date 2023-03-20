@@ -44,3 +44,13 @@ function questionsRun() {
   }
   return true;
 }
+
+
+function generatePassword(){
+  var password = ""; 
+  for(var i = 0; i < passLength; i++) { 
+   var randomChoice = Math.floor (Math.random()* choiceArr.length); 
+   password= password + choiceArr[randomChoice]; 
+  }
+  return password;
+}
