@@ -1,3 +1,4 @@
+//connects to the button in html
 var generateBtn = document.querySelector("#generate");
 
 // When "Generate Password" button is clicked, the code runs.
