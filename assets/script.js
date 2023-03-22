@@ -7,12 +7,13 @@ generateBtn.addEventListener("click", writePassword);
 //empty string as password is not generated yet from users selection
 var choiceArr = "";
 
+
 //Character options
 function questionsRun() {
-  var choiceArrLower= "abcdefghijklmnopqrstuvwxyz";
-  var choiceArrUpper= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var choiceArrNum= "0123456789";
-  var choiceArrSym= "@!#$%^&*()<>/'.?+";
+var choiceArrLower = 'abcdefghijklmnopqrstuvwxyz';
+var choiceArrUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var choiceArrNum = '0123456789';
+var choiceArrSym = '@!#$%^&*()<>/';
 
   //parseInt converting the typed number from a string to interger. 
   passLength = parseInt (prompt("How many characters do you want your password to be? (8-128 characters)"));
@@ -26,7 +27,7 @@ function questionsRun() {
   //"OK" button selection adds element the password, "cancel" button indicates you do not want that element in your password
   var userChoice1 = confirm("Would you like lowercase letters in your password?");
   if (userChoice1) {
-    choiceArr +=choiceArrLower;
+    choiceArr += choiceArrLower;
   }
   var userChoice2 = confirm("Would you like uppercase letters in your password?");
   if (userChoice2) {
@@ -34,11 +35,11 @@ function questionsRun() {
   }
   var userChoice3 = confirm("Would you like numbers in your password?");
   if (userChoice3) {
-    choiceArr +=choiceArrNum;
+    choiceArr += choiceArrNum;
   }
   var userChoice4 = confirm("Would you like special characters in your password?");
   if (userChoice4) {
-    choiceArr +=choiceArrSym;
+    choiceArr += choiceArrSym;
   }
   return true;
 }
@@ -53,12 +54,13 @@ function writePassword() {
   }
 }
 
-
 function generatePassword(){
  var password = ""; //empty string as nothing is generated yet
+
  for(var i = 0; i < passLength; i++) { //loops through array options
   var randomChoice = Math.floor (Math.random()* choiceArr.length); //random selection from our choiceArr
   password= password + choiceArr[randomChoice]; //enmpty string becomes filled with the correct number of choiceArr items
  }
+ choiceArr - "";
  return password; //password is created 
 }
