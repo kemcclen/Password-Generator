@@ -10,7 +10,7 @@ The user selects:
 -numbers
 -special characters 
 
- This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code.
+ This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code. The app must be refreshed between uses.
 
 
 ## Error Handling 
