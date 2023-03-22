@@ -4,9 +4,15 @@ var generateBtn = document.querySelector("#generate");
 // When "Generate Password" button is clicked, the code runs.
 generateBtn.addEventListener("click", writePassword);
 
-//Character options, length slection and prompts "OK"-ing the use of lowercase letters, uppercase letters, numbers and symbols.
+//empty string as password is not generated yet from users selection
+var choiceArr = "";
+
+//Character options
 function questionsRun() {
-  choiceArr = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '@', '!', '#', '$', '%', '^', '&', '*', '(', ')', '<', '>', '/', ',', '.', '?', '+'];
+  var choiceArrLower= "abcdefghijklmnopqrstuvwxyz";
+  var choiceArrUpper= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var choiceArrNum= "0123456789";
+  var choiceArrSym= "@!#$%^&*()<>/'.?+";
 
   //parseInt converting the typed number from a string to interger. 
   passLength = parseInt (prompt("How many characters do you want your password to be? (8-128 characters)"));
@@ -17,22 +23,22 @@ function questionsRun() {
     return false;
   }
 
-  //"OK" button selection leads to next question, "cancel" button selection closes prompt windows
-  var userChoice = confirm("Would you like lowercase letters in your password?");
-  if (!userChoice) {
-    return;
+  //"OK" button selection adds element the password, "cancel" button indicates you do not want that element in your password
+  var userChoice1 = confirm("Would you like lowercase letters in your password?");
+  if (userChoice1) {
+    choiceArr +=choiceArrLower;
   }
-  var userChoice = confirm("Would you like uppercase letters in your password?");
-  if (!userChoice) {
-    return;
+  var userChoice2 = confirm("Would you like uppercase letters in your password?");
+  if (userChoice2) {
+    choiceArr += choiceArrUpper;
   }
-  var userChoice = confirm("Would you like numbers in your password?");
-  if (!userChoice) {
-    return;
+  var userChoice3 = confirm("Would you like numbers in your password?");
+  if (userChoice3) {
+    choiceArr +=choiceArrNum;
   }
-  var userChoice = confirm("Would you like special characters in your password?");
-  if (!userChoice) {
-    return;
+  var userChoice4 = confirm("Would you like special characters in your password?");
+  if (userChoice4) {
+    choiceArr +=choiceArrSym;
   }
   return true;
 }
@@ -50,7 +56,7 @@ function writePassword() {
 
 function generatePassword(){
  var password = ""; //empty string as nothing is generated yet
- for(var i = 0; i < passLength; i++) { //dictates length of password 
+ for(var i = 0; i < passLength; i++) { //loops through array options
   var randomChoice = Math.floor (Math.random()* choiceArr.length); //random selection from our choiceArr
   password= password + choiceArr[randomChoice]; //enmpty string becomes filled with the correct number of choiceArr items
  }
